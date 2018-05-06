@@ -1,0 +1,77 @@
+//Write a program that will indicate the lowest operating cost between 5 cars. The operating cost is determined by adding the cost of purchasing the car, the cost of gas and the cost of maintenance. The name of each car, mpg and and maintenance cost are stored in arrays. The program will take as input: the cost of gas and number of years in service. The program will output the operating cost of each car and indicate which car has the lowest operating cost. 
+ 
+ You will bring in your source code and demonstrate its functionality. The instructor will make arrangements with you to determine when the presentation will occur.
+
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+using namespace std;
+
+
+{
+    int MAX = 5;
+    string car[] = {"Corolla", "Camry", "Tundra", "Tacoma", "4Runner"};
+    double mpg[MAX] = {0.08, 0.08, 0.17, 0.13, 0.15}; //average cost of gas per year;
+    int price [MAX] = {18600, 23500, 31200, 25200, 35000};//initial price
+    double maintenence[5] = {618.6, 613.2, 795.6, 955.4, 892.8}; //average maintenence cost per year;
+    double total[5]; 
+    int miles;
+    int years;
+    vector<pair <int, string>> vect;
+    
+    cout << "How many miles do you travel per year? " << endl;
+    cin >> miles;
+    
+    cout << "How many years do you need the vehicle? " << endl;
+    cin >> years;
+    
+     
+    for(int i = 0; i < 5; i++)
+    {
+        total[i] = (mpg[i] * miles) + (maintenence[i] * years) + price [i];
+         cout << car[i] << " " << total[i] << endl;
+  
+    }
+    
+    //pairs the car to its price
+    for (int i = 0; i < 5; i++)
+	{
+		pair <double, string> pair;
+		pair.first = total[i];
+        pair.second = car[i];
+		vect.push_back(pair);
+	}
+    
+    //sorts the values
+    std::sort(vect.begin(), vect.end()); 
+    
+    cout << " " << endl;
+    
+   cout << "The "<< vect[0].second << " is the cheapest car to own at a  cost of $" << vect[0].first; 
+    
+    
+    
+    
+   
+    
+    return 0;
+} // End of main function
