@@ -1,0 +1,112 @@
+// Preprocessor Directives
+
+#pragma warning(disable:4996) // To enable deprecated scanf()
+
+#include <stdio.h>
+#include <conio.h>
+#include <math.h>
+
+void main() {
+
+	// Declare Variables
+
+	int menuOption = 0;
+
+	// Prompts
+
+	printf("FORMULA SELECTION MENU\n");
+
+	printf("1.) Convert centimeters to inches\n");
+
+	printf("2.) Find distance between two points\n");
+
+	printf("3.) Find surface area of a pyramid\n");
+
+	printf("--------------------------\n");
+
+	printf("Which formula would you like to run\?: ");
+
+	scanf("%d", &menuOption);
+
+	// Run Appropriate Formula
+
+	if (menuOption == 1) {
+
+		// Declare variables for this formula...
+		double cent;
+		double inch;
+
+		// Prompt for this formula...
+		printf("How many centimeters\?: ");
+		scanf("%lf", &cent);
+		// Perform background mathematics...
+		inch = cent / 2.54;
+		// Display results on the screen...
+		printf("%.2f centimeters is %.2f inches\n", cent, inch);
+	}
+
+	else if (menuOption == 2) {
+
+		// Declare variables for this formula...
+		double x1;
+		double x2;
+		double y1;
+		double y2;
+		double dist;
+		// Prompt for this formula...
+		printf("Enter X1: ");
+		scanf("%lf", &x1);
+		printf("Enter X2: ");
+		scanf("%lf", &x2);
+		printf("Enter y1: ");
+		scanf("%lf", &y1);
+		printf("Enter y2: ");
+		scanf("%lf", &y2);
+
+		// Perform background mathematics...
+		dist = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2));
+		// Display results on the screen...
+		printf("%.2f\n", dist);
+	}
+
+	else if (menuOption == 3) {
+
+		// Declare variables for this formula...
+		double length;
+		double width;
+		double height;
+		double hypotenuseSqrd;
+		double hypotenuse;
+		double triangleArea;
+		double surfaceArea;
+		double baseArea;
+
+		// Prompt for this formula...
+		printf("What is the lenght of the base\?: ");
+		scanf("%lf", &length);
+		printf("What is the height of the pyramid\?: ");
+		scanf("%lf", &height);
+		// Perform background mathematics...
+		width = length;
+		baseArea = length * length;
+		hypotenuseSqrd = pow(length / 2, 2) + pow(height, 2);
+		hypotenuse = sqrt(hypotenuseSqrd);
+		triangleArea = (length*height) / 2;
+		surfaceArea = length * width + length * sqrt(pow(width / 2, 2) + pow(height, 2)) + width * sqrt(pow(length / 2, 2) + pow(height, 2));
+
+
+
+
+		
+		// Display results on the screen...
+		printf("The surface area of the pyramid is: %.2f units squared", surfaceArea);
+
+	}
+
+	else {
+
+		printf("That was not a valid menu option...\n");
+
+	}
+	_getch();
+  }
